@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2023-08-22T08:47:32.975Z",
-    "end": "2023-08-22T08:47:44.713Z",
-    "duration": 11738,
+    "start": "2023-08-22T09:09:00.456Z",
+    "end": "2023-08-22T09:09:11.329Z",
+    "duration": 10873,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "bb79546c-342b-4915-8acf-d2e952ea0bf2",
+      "uuid": "f4b9b23e-d232-4a87-99ba-36b3dd656d93",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "19d03775-e8f1-4e16-b92c-31b2b6fa93c8",
+          "uuid": "c7b7fbf0-fd80-425a-a237-d33ecec23b74",
           "title": "loggin",
           "fullFile": "C:\\terenbro\\teststructure\\test\\login.test.js",
           "file": "\\test\\login.test.js",
@@ -36,7 +36,7 @@
               "title": "\"before each\" hook in \"loggin\"",
               "fullTitle": "loggin \"before each\" hook in \"loggin\"",
               "timedOut": false,
-              "duration": 1650,
+              "duration": 1108,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "const driver = await createWebDriver();",
               "err": {},
-              "uuid": "ef0a4e8e-0c94-48b0-8db9-0a05d8e9f2c4",
-              "parentUUID": "19d03775-e8f1-4e16-b92c-31b2b6fa93c8",
+              "uuid": "f1ad4665-6e75-44e6-b1b6-96729cae7e97",
+              "parentUUID": "c7b7fbf0-fd80-425a-a237-d33ecec23b74",
               "isHook": true,
               "skipped": false
             }
@@ -56,7 +56,7 @@
               "title": "\"after each\" hook in \"loggin\"",
               "fullTitle": "loggin \"after each\" hook in \"loggin\"",
               "timedOut": false,
-              "duration": 88,
+              "duration": 165,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "51cdef55-caa6-463e-9cb2-0c3e28ff2e47",
-              "parentUUID": "19d03775-e8f1-4e16-b92c-31b2b6fa93c8",
+              "uuid": "4bcca972-6a5c-4ee5-a05e-1ae96dfd090c",
+              "parentUUID": "c7b7fbf0-fd80-425a-a237-d33ecec23b74",
               "isHook": true,
               "skipped": false
             }
@@ -76,35 +76,35 @@
               "title": "loggin in home page",
               "fullTitle": "loggin loggin in home page",
               "timedOut": false,
-              "duration": 5619,
+              "duration": 5317,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "await driver.get(\"https://dogsnavigator.com.ua/login\");\nawait driver.wait(\n  until.elementIsVisible(driver.findElement(By.css(\"form\"))),\n  10000\n);\nconst logginPageTest = new LoginPage(driver, '963653768', '22222');\nlogginPageTest.enterLoginDate();\nawait driver.wait(until.elementLocated(By.linkText(\"Мій Профіль\")),10000).click();\nawait driver.wait(until.elementsLocated(By.xpath(\"//img[@class='pet-photo']\")),10000)\nconst screenshotsDir = path.join(__dirname, 'screenshots');\nif (!fs.existsSync(screenshotsDir)) {\n  fs.mkdirSync(screenshotsDir);\n}\n\nconst screenshotFilename = 'login_screen.png';\nconst screenshotPath = path.join(screenshotsDir, screenshotFilename);\n \n   const screenShot =  await driver.takeScreenshot();\n   const screenShotBuffer = Buffer.from(screenShot, 'base64');\n\nawait fs.promises.writeFile(screenshotPath, screenShotBuffer);\nawait driver.sleep(2000)",
+              "code": "await driver.get(\"https://dogsnavigator.com.ua/login\");\nawait driver.wait(\n  until.elementIsVisible(driver.findElement(By.css(\"form\"))),\n  10000\n);\nconst logginPageTest = new LoginPage(driver, \"963653768\", \"22222\");\nlogginPageTest.enterLoginDate();\nawait driver\n  .wait(until.elementLocated(By.linkText(\"Мій Профіль\")), 10000)\n  .click();\nawait driver.wait(\n  until.elementsLocated(By.xpath(\"//img[@class='pet-photo']\")),\n  10000\n);\nconst screenshotsDir = path.join(__dirname, \"screenshots\");\nif (!fs.existsSync(screenshotsDir)) {\n  fs.mkdirSync(screenshotsDir);\n}\nconst screenshotFilename = \"login_screen.png\";\nconst screenshotPath = path.join(screenshotsDir, screenshotFilename);\nconst screenshotData = await driver.takeScreenshot();\nconst buffer = Buffer.from(screenshotData, 'base64');\nawait fs.writeFileSync(screenshotPath, buffer);\n\nawait driver.sleep(2000);",
               "err": {},
-              "uuid": "1f91157b-19ab-45fa-97f1-5a3765351f4b",
-              "parentUUID": "19d03775-e8f1-4e16-b92c-31b2b6fa93c8",
+              "uuid": "2ec4749a-52f4-436c-950b-544d922ca495",
+              "parentUUID": "c7b7fbf0-fd80-425a-a237-d33ecec23b74",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "1f91157b-19ab-45fa-97f1-5a3765351f4b"
+            "2ec4749a-52f4-436c-950b-544d922ca495"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 5619,
+          "duration": 5317,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
         },
         {
-          "uuid": "b19a4c4c-55c6-4902-af86-450655c1ad92",
+          "uuid": "636eaf3d-acd5-4d89-a0b7-cdd48ad629a2",
           "title": "register",
           "fullFile": "C:\\terenbro\\teststructure\\test\\register.test.js",
           "file": "\\test\\register.test.js",
@@ -113,7 +113,7 @@
               "title": "\"before each\" hook in \"register\"",
               "fullTitle": "register \"before each\" hook in \"register\"",
               "timedOut": false,
-              "duration": 1134,
+              "duration": 1000,
               "state": null,
               "speed": null,
               "pass": false,
@@ -122,8 +122,8 @@
               "context": null,
               "code": "driver = await createWebDriver();",
               "err": {},
-              "uuid": "d1c9569f-a4b7-417a-b508-aa1b3ec9e51f",
-              "parentUUID": "b19a4c4c-55c6-4902-af86-450655c1ad92",
+              "uuid": "33a3674b-86a1-420f-945d-81a0344e87d0",
+              "parentUUID": "636eaf3d-acd5-4d89-a0b7-cdd48ad629a2",
               "isHook": true,
               "skipped": false
             }
@@ -133,7 +133,7 @@
               "title": "\"after each\" hook in \"register\"",
               "fullTitle": "register \"after each\" hook in \"register\"",
               "timedOut": false,
-              "duration": 53,
+              "duration": 3,
               "state": null,
               "speed": null,
               "pass": false,
@@ -142,8 +142,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "4ee4c516-6ef4-422b-8a4d-06171a5fab57",
-              "parentUUID": "b19a4c4c-55c6-4902-af86-450655c1ad92",
+              "uuid": "8c80db2c-82ae-4598-ac36-5eaadb645359",
+              "parentUUID": "636eaf3d-acd5-4d89-a0b7-cdd48ad629a2",
               "isHook": true,
               "skipped": false
             }
@@ -153,7 +153,7 @@
               "title": "register",
               "fullTitle": "register register",
               "timedOut": false,
-              "duration": 3182,
+              "duration": 3269,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -162,20 +162,20 @@
               "context": null,
               "code": "await driver.get(\"https://dogsnavigator.com.ua/login\");\nawait driver.wait(\n  until.elementIsVisible(driver.findElement(By.css(\"form\"))),\n  10000\n);\nconsole.log(\"in test\");\nconst registerTest = new RegisterPage(\n  driver,\n  \"Leo\",\n  \"tolik\",\n  \"682029406\",\n  \"55555\"\n);\nawait driver.sleep(2000);",
               "err": {},
-              "uuid": "64a7e1f7-b836-450c-9e07-8837e62ebebd",
-              "parentUUID": "b19a4c4c-55c6-4902-af86-450655c1ad92",
+              "uuid": "4f0c1dc6-d5b9-4862-afe0-d4bbd9284961",
+              "parentUUID": "636eaf3d-acd5-4d89-a0b7-cdd48ad629a2",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "64a7e1f7-b836-450c-9e07-8837e62ebebd"
+            "4f0c1dc6-d5b9-4862-afe0-d4bbd9284961"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3182,
+          "duration": 3269,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
