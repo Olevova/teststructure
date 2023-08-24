@@ -4,24 +4,23 @@ class LoginPage {
     this.driver = driver;
     this.phone = phone;
     this.password = password;
-  }
+  };
 
-  async enterLoginDate() {
+  async LogginIntoPage() {
+    await driver.get("https://dogsnavigator.com.ua/login");
     await this.driver.wait(until.elementsLocated(By.css("form")), 10000);
+    
     const phoneInput = await this.driver.findElement(By.id("phone"));
     const passwordInput = await this.driver.findElement(By.id("password-reg"));
     const enterButton = await this.driver.findElement(
-      By.xpath(
-        "/html/body/app-root/app-login/section/div[2]/app-login-form/form/button[2]"
-      )
+      By.xpath("//button[text()='Увійти']")
     );
-    console.log('ok');
+
     await phoneInput.sendKeys(this.phone);
     await passwordInput.sendKeys(this.password);
-    console.log('send');
     await enterButton.click();
-   
-  }
+    await this.driver.wait(until.urlIs('https://dogsnavigator.com.ua/'),2000)
+  };
 };
 
 module.exports = LoginPage;

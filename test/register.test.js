@@ -2,9 +2,14 @@ const RegisterPage = require("../srс/class/registerPage");
 const createWebDriver = require("../srс/utils/driver");
 const { describe, it, beforeEach, afterEach } = require("mocha");
 const { By, until } = require("selenium-webdriver");
-const path = require("path");
+const should = require("chai").should();
+const chrome = require("selenium-webdriver/chrome");
+const makeScreenshot = require('../srс/utils/makeScreenShot');
 
-describe("register", async () => {
+describe("registretion of new User", async () => {
+
+  const successRegistrationUrl = "https://dogsnavigator.com.ua/";
+
   beforeEach(async () => {
     driver = await createWebDriver();
   });
@@ -13,15 +18,9 @@ describe("register", async () => {
     await driver.quit();
   });
 
-  it("register", async () => {
-    await driver.get("https://dogsnavigator.com.ua/login");
-    await driver.wait(
-      until.elementIsVisible(driver.findElement(By.css("form"))),
-      10000
-    );
-
-    console.log("in test");
-    const registerTest = new RegisterPage(
+  it("success registretion of new User", async () => {
+       
+    registerTest = new RegisterPage(
       driver,
       "Leo",
       "tolik",
@@ -29,6 +28,16 @@ describe("register", async () => {
       "55555"
     );
 
-    await driver.sleep(2000);
+    await registerTest.registrationExecution();
+    await driver.wait(until.urlMatches(/.+/), 3000);
+    const afterRegistrationUrl = await driver.getCurrentUrl();
+
+    if(afterRegistrationUrl!==successRegistrationUrl){
+      await driver.wait(until.elementLocated(By.className("error")),3000);
+      makeScreenshot(driver, 'register_error');
+    };
+
+    afterRegistrationUrl.should.to.equal(successRegistrationUrl);
+    
   });
 });
